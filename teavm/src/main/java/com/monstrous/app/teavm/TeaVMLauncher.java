@@ -3,6 +3,7 @@ package com.monstrous.app.teavm;
 import com.github.xpenatan.gdx.backends.teavm.TeaApplicationConfiguration;
 import com.github.xpenatan.gdx.backends.teavm.TeaApplication;
 import com.monstrous.app.Main;
+import com.monstrous.gdx.webgpu.backends.teavm.WgTeaApplication;
 
 /**
  * Launches the TeaVM/HTML application.
@@ -19,6 +20,6 @@ public class TeaVMLauncher {
         //// If width and height are both -1, then the app will fill the canvas size.
         config.width = 0;
         config.height = 0;
-        new TeaApplication(new Main(), config);
+        new WgTeaApplication(new Main(), config);
     }
 }

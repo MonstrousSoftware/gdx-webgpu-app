@@ -1,10 +1,8 @@
 package com.monstrous.app.lwjgl3;
 
-
 import com.monstrous.app.Main;
 import com.monstrous.gdx.webgpu.backends.desktop.WgDesktopApplication;
 import com.monstrous.gdx.webgpu.backends.desktop.WgDesktopApplicationConfiguration;
-
 
 public class Launcher {
     public static void main (String[] argv) {
