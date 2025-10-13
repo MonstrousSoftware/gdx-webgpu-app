@@ -19,7 +19,7 @@ apply plugin: 'io.github.fourlastor.construo'
 import io.github.fourlastor.construo.Target
 
 sourceSets.main.resources.srcDirs += [ rootProject.file('assets').path ]
-mainClassName = 'com.monstrous.app.lwjgl3.Lwjgl3Launcher'
+mainClassName = 'com.monstrous.app.lwjgl3.Launcher'
 application.setMainClass(mainClassName)
 eclipse.project.name = appName + '-lwjgl3'
 java.sourceCompatibility = 11
@@ -29,9 +29,7 @@ if (JavaVersion.current().isJava9Compatible()) {
 }
 
 dependencies {
-  implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
-  implementation "com.badlogicgames.gdx:gdx-lwjgl3-angle:$gdxVersion"
-  implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+  implementation "io.github.monstroussoftware.gdx-webgpu:gdx-desktop-webgpu:$gdxWebGPUVersion"
   implementation project(':core')
 
   if(enableGraalNative == 'true') {

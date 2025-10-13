@@ -4,26 +4,63 @@ A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://git
 
 This project was generated with a template including simple application launchers and an `ApplicationAdapter` extension that draws libGDX logo.
 
-Specify Java version 11 in gdx-liftoff.
+Make sure to specify Java version 11 in gdx-liftoff.
 
-Note: gdx-liftoff 1.13.5.3 generates a teavm build for gdx-teavm 1.2.1, we need a more recent version.
+# Update gradle.properties
 
-To update to a newer version change:gdxTeaVMVersion from 1.2.1 to 1.3.1 in gradle.properties.
-This also means the teaVMVersion needs to be updated from 0.12.0 to 0.12.3:
-#teaVMVersion=0.12.0
-teaVMVersion=0.12.3
+Add a version for gdx-webgpu and for gdx-teavm.  The versions for gdx and for teaVM can be commented out or removed:
 
-Issue when running TeaVMBuilder: Exception in thread "main" java.lang.NoSuchMethodError.
+```
+    gdxWebGPUVersion=0.3
+    gdxTeaVMVersion=1.3.0
+```
 
-There has been a breaking API changes since 1.2.1: TeaBuilder.config() no longer returns a TeaVMTool.
+Note that gdx-teavm needs to be at least 1.3.0.
+
+# Update TeaVMBuilder
+
+There has been a breaking API change in gdx-teaVM since 1.2.1: TeaBuilder.config() no longer returns a TeaVMTool.
 Therefore, change the following in TeaVMBuilder.java:
+
 ```     //TeaVMTool tool = TeaBuilder.config(teaBuildConfiguration);
         TeaBuilder.config(teaBuildConfiguration);
         TeaVMTool tool = new TeaVMTool();
 ```
 
-Next issue when running TeaVMLauncher:
-Exception in thread "main" java.lang.UnsatisfiedLinkError: 'org.teavm.jso.browser.Window org.teavm.jso.browser.Window.current()'
+# Update core/build.gradle
+
+Under dependencies, replace the api call of gdx with an api call of gdx-webgpu:
+```
+    dependencies {
+        api "io.github.monstroussoftware.gdx-webgpu:gdx-webgpu:$gdxWebGPUVersion"
+        //api "com.badlogicgames.gdx:gdx:$gdxVersion"
+
+    }
+```
+
+# Update lwjgl3/build.gradle
+
+Under dependencies, define a dependency on gdx-desktop-webgpu and on the project core
+```
+    dependencies {
+      implementation "io.github.monstroussoftware.gdx-webgpu:gdx-desktop-webgpu:$gdxWebGPUVersion"
+      implementation project(':core')
+    
+    }
+```
+
+# Update teavm/build.gradle
+
+Under dependencies, define a dependency on backend-teavm, on gdx-teavm-webgpu and on the project core
+```
+    dependencies {
+      implementation "com.github.xpenatan.gdx-teavm:backend-teavm:$gdxTeaVMVersion"
+      implementation "io.github.monstroussoftware.gdx-webgpu:gdx-teavm-webgpu:$gdxWebGPUVersion"
+      implementation project(':core')
+   
+    }
+```
+
 
 ## Platforms
 
