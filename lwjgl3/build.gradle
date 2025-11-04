@@ -29,7 +29,12 @@ if (JavaVersion.current().isJava9Compatible()) {
 }
 
 dependencies {
-  implementation "io.github.monstroussoftware.gdx-webgpu:gdx-desktop-webgpu:$gdxWebGPUVersion"
+  implementation "io.github.monstroussoftware.gdx-webgpu:backend-desktop:$gdxWebGPUVersion"
+//  implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+//  implementation "com.badlogicgames.gdx:gdx-lwjgl3-angle:$gdxVersion"
+  implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+//  implementation("com.github.xpenatan.jWebGPU:webgpu-desktop:$jWebGPUVVersion:windows_64_dawn")
+//  implementation("com.github.xpenatan.jWebGPU:webgpu-desktop:$jWebGPUVVersion:windows_64_wgpu")
   implementation project(':core')
 
   if(enableGraalNative == 'true') {

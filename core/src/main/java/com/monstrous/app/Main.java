@@ -1,6 +1,7 @@
 package com.monstrous.app;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
@@ -17,6 +18,7 @@ public class Main extends ApplicationAdapter {
     public void create() {
         batch = new WgSpriteBatch();
         image = new WgTexture("libgdx.png");
+        Gdx.app.log("Gdx version", com.badlogic.gdx.Version.VERSION);
     }
 
     @Override
