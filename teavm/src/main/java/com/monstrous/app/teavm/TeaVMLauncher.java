@@ -1,7 +1,6 @@
 package com.monstrous.app.teavm;
 
 import com.github.xpenatan.gdx.backends.teavm.TeaApplicationConfiguration;
-import com.github.xpenatan.gdx.backends.teavm.TeaApplication;
 import com.monstrous.app.Main;
 import com.monstrous.gdx.webgpu.backends.teavm.WgTeaApplication;
 

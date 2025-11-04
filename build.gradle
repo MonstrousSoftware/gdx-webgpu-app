@@ -63,16 +63,16 @@ subprojects {
   version = "$projectVersion"
   ext.appName = 'gdx-webgpu-app'
   repositories {
-    mavenLocal()
+    //mavenLocal()
     mavenCentral()
-    maven { url 'https://s01.oss.sonatype.org' }
-    // You may want to remove the following line if you have errors downloading dependencies.
-
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
-    maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
-    maven { url 'https://central.sonatype.com/repository/maven-snapshots/' }
-    maven { url 'https://jitpack.io' }
-    maven { url 'https://teavm.org/maven/repository/' }
+//    maven { url 'https://s01.oss.sonatype.org' }
+//    // You may want to remove the following line if you have errors downloading dependencies.
+//
+//    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+//    maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
+//    maven { url 'https://central.sonatype.com/repository/maven-snapshots/' }
+//    maven { url 'https://jitpack.io' }
+//    maven { url 'https://teavm.org/maven/repository/' }
   }
 }
 
